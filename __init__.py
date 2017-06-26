@@ -1,30 +1,35 @@
 # -*- coding: utf-8 -*-
 from ArbolBinario import arbolBinario
-#from flask import Flask, request
 
-#app = Flask("ejemploJunio")
+from flask import Flask, request
 
-#@app.route('/metodo2',methods=['POST'])
-#def h():
-    #parametroPython = str(request.form['p'])
-    #parametroPython2 = str(request.form['pa'])
-    #return "parametro = " + parametroPython, parametroPython2
+app = Flask("ejemploJunio")
 
-#@app.route('/hola')
-#def he():
-    #return "hola Mundo"
+@app.route('/metodo2',methods=['POST'])
+def h():
+    parametroPython = str(request.form['p'])
+    parametroPython2 = str(request.form['pa'])
+    return "parametro = " + parametroPython + parametroPython2
 
-#if __name__ == "__main__":
-  #app.run(debug=True, host='0.0.0.0')
+@app.route('/hola')
+def he():
+    return "hola Mundo"
+
+if __name__ == "__main__":
+  app.run(debug=True, host='0.0.0.0')
+
 arbol = arbolBinario()
-
-arbol.Agregar("william")
-arbol.Agregar("rudy")
-arbol.Agregar("fer")
-arbol.Agregar("ricardo")
-arbol.Agregar("gil")
-
+#arbol.Agregar("boris")
+#arbol.Agregar("kevin")
+#arbol.Agregar("alan")
+#arbol.Agregar("leo")
+#arbol.Agregar("fer")
 
 
-arbol.mostrar_en_Orden(arbol.raiz)
-arbol.mostrar_Pre_Orden(arbol.raiz)
+
+
+#arbol.mostrar_en_orden(arbol.raiz)
+#print("\n")
+arbol.mostrar_post_orden(arbol.raiz)
+#print("\n")
+#arbol.mostrar_pre_orden(arbol.raiz)
