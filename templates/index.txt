@@ -1,0 +1,25 @@
+<!doctype html>
+
+<html>
+   
+   <head>
+      <title>Principal</title>
+   </head>
+   <body>
+   
+      {% with messages = get_flashed_messages() %}
+         {% if messages %}
+            <ul>
+               {% for message in messages %}
+               <li<{{ message }}</li>
+               {% endfor %}
+            </ul>
+         {% endif %}
+      {% endwith %}
+		
+      <h1>Iniciar Sesion como Administrador</h1>
+      <p>Iniciar Sesion<a href = "{{ url_for('login') }}">
+         <b>log in?</b></a></p>
+      
+   </body>
+</html>
