@@ -4,7 +4,7 @@ from flask import Flask, flash, redirect, render_template, request, url_for
 from NodoArbol import nodoArbol
 nodo = nodoArbol()
 arbol = arbolBinario()
-arbol.Agregar("boris")
+arbol.Agregar("boris", "123" , False)
 #arbol.Agregar("kevin")
 #arbol.Agregar("alan")
 #arbol.Agregar("leo")
@@ -23,17 +23,21 @@ app.secret_key = 'random string'
 def index():
    return render_template('index.html')
 
+def principal():
+   return render_template('principal.html')
+
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
    error = None
 
    if request.method == 'POST':
       if request.form['username'] != arbol.raiz.nombre or \
-         request.form['password'] != "123":
-         error = 'Invalid username or password. Please try again!'
+         request.form['password'] != arbol.raiz.password:
+         error = 'Usuario o Password Invalido. Ingrese otra vez!'
       else:
-         flash('You were successfully logged in')
+         flash('Bienvenido Admin: ' , arbol.raiz.nombre)
          return redirect(url_for('index'))
+
 			
    return render_template('login.html', error = error)
 

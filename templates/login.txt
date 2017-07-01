@@ -27,6 +27,7 @@
             <dt>Password:</dt>
             <dd><input type = password name = password></dd>
          </dl>
+	 <a href="#" class="btn btn-success">Login</a>
          <p><input type = submit value = Login></p>
       </form>
       

@@ -12,9 +12,9 @@ class arbolBinario:
         else:
             return False
 
-    def Agregar(self, nombre):
-        if (self.Vacio()):
-            self.raiz = nodoArbol(nombre = nombre, es_raiz = True)
+    def Agregar(self, nombre, password, login):
+        if (self.Vacio() and login == False):
+            self.raiz = nodoArbol(nombre = nombre, password = password, login = True, es_raiz = True)
         else:
             NodoArbol = self.getPos(nombre)
             if (self.ConvertirAscii(nombre) <= self.ConvertirAscii(NodoArbol.nombre)):
